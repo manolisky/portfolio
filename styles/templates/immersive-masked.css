@@ -1,0 +1,93 @@
+/**
+ * Immersive Masked Cover Styles
+ * CSS Text Cutout effect - isolated from base immersive styles
+ * 
+ * This extends immersive.css - all base .immersive-* classes
+ * are inherited, these rules add/override for masked variant.
+ */
+
+/* ============================================
+   Masked Cover Variables & Container
+   ============================================ */
+
+.immersive-cover.cover-masked .cover-content {}
+
+.immersive-cover.cover-masked {
+    --mask-font-size: 10vw;
+
+    /* Solid background to occlude global layer */
+    background-color: var(--bg-primary, #0a0a0a) !important;
+
+    /* Reset padding for full-width text */
+    padding: 0 !important;
+}
+
+/* Masked slides: Solid background to occlude global layer */
+.immersive-slide.cover-masked {
+    background-color: var(--bg-primary, #0a0a0a) !important;
+    z-index: 10;
+}
+
+/* ============================================
+   Text Cutout Effect
+   ============================================ */
+
+/* 
+   Pure CSS Cutout Text 
+   - Uses background-clip to punch a hole through the text
+   - Background attachment fixed makes it feel like a window
+*/
+.immersive-slide.cover-masked .text-cutout {
+    font-family: inherit;
+    font-size: var(--mask-font-size);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+
+    /* The Magic */
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Keep texture static */
+
+    width: 100%;
+    height: fit-content;
+}
+
+/* ============================================
+   Masked Cover Content Layout
+   ============================================ */
+
+/* 
+   The Container
+   - Uses Flexbox to stack the Title and Content
+   - Controls the Gap naturally
+*/
+.immersive-cover.cover-masked .cover-content {
+    position: relative;
+    width: fit-content;
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.immersive-cover.cover-masked .cover-content .description {
+    margin: .5rem;
+    padding: .5rem 1rem;
+}
+
+/* Meta styling for masked covers */
+.immersive-cover.cover-masked .cover-content .meta {
+    color: var(--text-secondary, #a0a0a0);
+}
+
+.immersive-cover.cover-masked .cover-content .tags .tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary, #a0a0a0);
+}

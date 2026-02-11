@@ -1,0 +1,159 @@
+/* ========================================
+   Card Component
+   ======================================== */
+.project-card {
+    position: relative;
+    opacity: 0;
+    animation: cardFadeIn 800ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    border: .5px solid rgba(105, 105, 105, 0.3);
+}
+
+.project-card:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 200ms;
+}
+
+.project-card:nth-child(4) {
+    animation-delay: 300ms;
+}
+
+.project-card:nth-child(5) {
+    animation-delay: 400ms;
+}
+
+.project-card:nth-child(6) {
+    animation-delay: 500ms;
+}
+
+.project-card:nth-child(7) {
+    animation-delay: 600ms;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg-card);
+    /* border: 1px solid var(--border); */
+    transition: border-color var(--transition-base);
+}
+
+
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.project-card:hover img {
+    transform: scale(1.03);
+}
+
+/* Overlay */
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    transform: translateY(10px);
+    transition: transform var(--transition-base);
+}
+
+.project-card:hover .overlay-content {
+    transform: translateY(0);
+}
+
+.project-overlay h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.project-overlay p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mobile: always show overlay */
+@media (max-width: 768px) {
+    .project-card {
+        grid-column: span 1 !important;
+        /* Override inline styles */
+    }
+
+    .project-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    }
+
+    .overlay-content {
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Masked Card Variant
+   ======================================== */
+.project-card.masked .card-inner {
+    background-color: var(--bg-primary, #0a0a0ab7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card.masked .text-cutout {
+    font-family: inherit;
+    font-size: 10vw; /* Responsive font size relative to viewport */
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+
+    /* The Magic */
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: cover;
+    background-position: center;
+    /* background-attachment: fixed; */ /* Removed fixed attachment for card context as it can optionally drift */
+}
+
+/* Adjust font size for desktop grid context */
+@media (min-width: 769px) {
+    .project-card.masked .text-cutout {
+        font-size: 5vw;
+    }
+}
+
+/* Ensure overlay works on top */
+.project-card.masked .project-overlay {
+    background: rgba(0, 0, 0, 0.4); /* Lighter overlay for masked cards */
+}
+
+/* Ensure text is readable/visible on hover if needed, 
+   but for now we just keep the cutout effect visible. 
+   The overlay content (description) will fade in on top. */

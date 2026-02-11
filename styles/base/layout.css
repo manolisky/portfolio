@@ -1,0 +1,23 @@
+/* ========================================
+   Layout Containers
+   ======================================== */
+#app {
+    position: relative;
+}
+
+#content {
+    min-height: 100vh;
+    padding-top: var(--header-height);
+}
+
+.container-sm {
+    max-width: var(--container-content);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.container-lg {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}

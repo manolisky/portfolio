@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manolis Kyzalas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Import Map: Maps npm package names to CDN URLs for the browser -->
+  <script type="importmap">
+    {
+      "imports": {
+        "marked": "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js",
+        "js-yaml": "https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.mjs"
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/portfolio/styles/main.css">
+<meta property="og:title" content="Manolis Kyzalas">
+  <meta property="og:description" content="Portfolio of Manolis Kyzalas">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://manoliskyzalas.com/en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Manolis Kyzalas">
+  <meta name="twitter:description" content="Portfolio of Manolis Kyzalas">
+<meta name="base-path" content="/portfolio/">
+<link rel="icon" type="image/svg+xml" href="/portfolio/assets/favicon.svg">
+</head>
+
+<body class="hydrated">
+  <div id="app">
+    <header id="header"></header>
+    <main id="content">
+    <div class="home-page fade-in">
+      <div class="project-grid">
+      <a href="/portfolio/en/projects/impromptu/" class="project-card  masked" style="grid-column: span 2; grid-row: span 2;">
+        <div class="card-inner">
+          <div class="text-cutout" style="background-image: url('/portfolio/pages/impromptu/media/river-cover.webp')">
+            Impromptu
+          </div>
+          <div class="project-overlay">
+             <div class="overlay-content">
+               <p>Poetic and Ethnomusicological documentary about the Slavic Songs of Macedonia</p>
+             </div>
+          </div>
+        </div>
+      </a>
+    
+    <a href="/portfolio/en/projects/bullets/" class="project-card " style="grid-column: span 1; grid-row: span 2;">
+      <div class="card-inner">
+        <img src="/portfolio/pages/bullets/media/stairs.jpg" alt="Bullets and other fallen things" loading="lazy" />
+        <div class="project-overlay">
+          <div class="overlay-content">
+            <h3>Bullets and other fallen things</h3>
+            <p>Multimedia - Devised - Postdramatic Theater Performance</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  
+    <a href="/portfolio/en/projects/pambur/" class="project-card " style="grid-column: span 1; grid-row: span 2;">
+      <div class="card-inner">
+        <img src="/portfolio/pages/pambur/media/full.jpeg" alt="Pambur" loading="lazy" />
+        <div class="project-overlay">
+          <div class="overlay-content">
+            <h3>Pambur</h3>
+            <p>Improvised Luthiery. An instrument 'in between'.</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  
+    <a href="/portfolio/en/projects/nota/" class="project-card featured" style="grid-column: span 1; grid-row: span 2;">
+      <div class="card-inner">
+        <img src="/portfolio/pages/nota/media/a4articledemo_grid_resized_20.png" alt="Nota" loading="lazy" />
+        <div class="project-overlay">
+          <div class="overlay-content">
+            <h3>Nota</h3>
+            <p>A music typography and layout LaTeX extension</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+    </div>
+  </main>
+    <footer id="footer"></footer>
+  </div>
+
+  <!-- Engine -->
+  <script type="module" src="/portfolio/hydrate.js"></script>
+</body>
+
+</html>

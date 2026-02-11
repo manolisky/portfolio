@@ -1,0 +1,153 @@
+/* ========================================
+   About Page Styles
+   ======================================== */
+
+.about-page {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+.about-header {
+    margin-bottom: var(--space-lg);
+}
+
+.about-header h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-xs);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .about-content {
+        grid-template-columns: 2fr 1fr;
+        padding: 0 2.5rem;
+    }
+}
+
+.about-text {
+    font-size: var(--text-lg);
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.about-text p {
+    margin-bottom: var(--space-md);
+}
+
+.about-text a {
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.about-text a:hover {
+    color: var(--accent);
+}
+
+.about-meta {
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .about-meta {
+        border-top: none;
+        border-left: 1px solid var(--border);
+        padding-top: 0;
+        padding-left: var(--space-md);
+        margin-top: 0;
+    }
+}
+
+.about-meta h2 {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.about-meta ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-meta li {
+    margin-bottom: var(--space-xs);
+    font-size: var(--text-base);
+}
+
+.about-meta strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* ========================================
+   About Page Visual Enhancements
+   ======================================== */
+
+/* Main content area - improved readability */
+.about-main {
+    font-size: var(--text-base);
+    line-height: 1.75;
+    color: var(--text-primary);
+}
+
+/* Paragraphs - comfortable reading rhythm */
+.about-main p {
+    margin-bottom: 1.5em;
+    max-width: 65ch;
+    /* optimal reading width */
+}
+
+/* Hero heading */
+.about-main h1 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+/* Section headings - softer, not shouty */
+.about-main h2 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Lists handled by components/markdown.css */
+
+.about-main li strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Links - subtle accent */
+.about-main a {
+    color: var(--text-primary);
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease;
+}
+
+.about-main a:hover {
+    text-decoration-color: var(--text-primary);
+}
+
+/* Responsive - fluid scaling handles sizing, no mobile override needed */

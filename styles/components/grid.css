@@ -1,0 +1,23 @@
+/* ========================================
+   Grid Component
+   ======================================== */
+.project-grid {
+    --grid-cols: 5;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-auto-rows: calc((100vh - var(--header-height)) / 2);
+    grid-auto-flow: dense;
+    gap: 0;
+}
+
+.home-page {
+    overflow-y: auto;
+}
+
+/* Mobile: single column */
+@media (max-width: 768px) {
+    .project-grid {
+        --grid-cols: 1;
+        grid-auto-rows: calc((100vh - var(--header-height)) / 3);
+    }
+}

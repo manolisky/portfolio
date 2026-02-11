@@ -1,0 +1,87 @@
+/* ========================================
+   Markdown / Content Formatting
+   ======================================== */
+
+.about-main ul,
+.content ul,
+.markdown ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5em;
+}
+
+.about-main li,
+.content li,
+.markdown li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 0.5em;
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed, 1.6);
+}
+
+/* Custom Bullet - Level 1 */
+.about-main>ul>li::before,
+.content>ul>li::before,
+.markdown>ul>li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--text-tertiary, rgba(255, 255, 255, 0.4));
+}
+
+/* Handle nested lists - Indent and specific markers */
+.about-main ul ul,
+.content ul ul,
+.markdown ul ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+    /* offset from parent text */
+    padding-left: 1em;
+    /* Indentation for the nested block */
+    border-left: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+}
+
+/* Nested Link Color / Text */
+.about-main ul ul li,
+.content ul ul li,
+.markdown ul ul li {
+    font-size: 0.95em;
+    margin-bottom: 0.25em;
+}
+
+/* Nested Bullet - Level 2+ */
+.about-main ul ul li::before,
+.content ul ul li::before,
+.markdown ul ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-size: 0.8em;
+    top: 0.1em;
+    color: var(--text-muted);
+}
+
+/* Ordered Lists */
+.about-main ol,
+.content ol,
+.markdown ol {
+    list-style: decimal;
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+    color: var(--text-secondary);
+}
+
+.about-main ol li,
+.content ol li,
+.markdown ol li {
+    padding-left: 0.5em;
+    /* Reset the ::before from general li selector if it matches */
+}
+
+.about-main ol li::before,
+.content ol li::before,
+.markdown ol li::before {
+    content: none;
+}

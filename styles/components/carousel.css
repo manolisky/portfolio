@@ -1,0 +1,115 @@
+/* ========================================
+   Carousel
+   ======================================== */
+.carousel {
+    position: relative;
+    margin: 2rem 0;
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 70vh;
+    /* ← Only place to change height */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.carousel-prev {
+    left: 1rem;
+}
+
+.carousel-next {
+    right: 1rem;
+}
+
+/* Dots */
+.carousel-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.carousel-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+@media print {
+
+    /* Carousel → Grid Layout for Print */
+    .carousel-print-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .carousel-print-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+}

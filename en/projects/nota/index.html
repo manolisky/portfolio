@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nota | Manolis Kyzalas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Import Map: Maps npm package names to CDN URLs for the browser -->
+  <script type="importmap">
+    {
+      "imports": {
+        "marked": "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js",
+        "js-yaml": "https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.mjs"
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/portfolio/styles/main.css">
+<meta property="og:title" content="Nota | Manolis Kyzalas">
+  <meta property="og:description" content="A music typography and layout LaTeX extension">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://manoliskyzalas.com/en">
+  <meta property="og:image" content="https://manoliskyzalas.com/portfolio/pages/nota/media/a4articledemo_grid_resized_20.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nota | Manolis Kyzalas">
+  <meta name="twitter:description" content="A music typography and layout LaTeX extension">
+  <meta name="twitter:image" content="https://manoliskyzalas.com/portfolio/pages/nota/media/a4articledemo_grid_resized_20.png">
+<meta name="base-path" content="/portfolio/">
+<link rel="icon" type="image/svg+xml" href="/portfolio/assets/favicon.svg">
+</head>
+
+<body class="hydrated page-nota">
+  <div id="app">
+    <header id="header"></header>
+    <main id="content">
+    <article class="project-detail fade-in">
+      <div class="project-hero" style="background-image: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,1) 100%), url('/portfolio/pages/nota/media/a4articledemo_grid_resized_20.png');"></div>
+      <div class="container-sm">
+        <header class="project-header">
+          <a href="/portfolio/en/" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Home
+          </a>
+          
+          <h1 class="text-gradient">Nota</h1>
+          <p class="description">A music typography and layout LaTeX extension</p>
+          
+          <div class="meta">
+            <div class="tags"><span class="tag">research</span><span class="tag">typography</span><span class="tag">coding</span></div>
+            <div class="date">August 2025</div>
+          </div>
+        </header>
+
+        <section class="content">
+          <h1>Nota</h1>
+<p><strong>Nota</strong> is an open source LaTeX package to include properly formatted musical notation in a document. It takes in account the layout of the document and the margins to render the music notation in a way that fits the document and most importantly it can render system by system so the score appears in an &quot;inline&quot; fashion, and wraps naturally like what is expected from text. It&#39;s goal is to have a simple interface and good defaults to feel like its &quot;just working&quot;. </p>
+<p>Another goal of this project is to provide an easy way to edit scores in the software of your liking, and with a simple save and recompile you can have the edited score rerendered in your document correctly, with no need to manually export as image or pdf, edit the image and re-import it in the LaTeX document.</p>
+<p>The code can be found in the Github Repository below:</p>
+<div class="github-card" data-repo="manolisky/nota">Loading manolisky/nota...</div>
+
+<h2>Examples</h2>
+<p>Below are some examples of the demo documents to demonstrate the macros and capabilities of the package. The <code>blindtext</code> package is used to fill the doc with text for demoing purposes.</p>
+<h3>A4 Article Demo</h3>
+<p>A4 paper, with all margins set to 20mm, using the <code>article</code> document class.</p>
+<div class="pdf-viewer" data-pdf data-src="/portfolio/pages/nota/media/a4articledemo.pdf" data-layout="paged" data-pages="dual-cover" data-zoom="fit-page">
+        <div class="pdf-viewer__content"></div>
+        <div class="pdf-viewer__controls"></div>
+      </div>
+
+<h3>A3 Two-Sided Demo</h3>
+<p>A3 book with the <code>twoside</code> option, featuring distinct inner and outer margins and larger music notation rendering.</p>
+<div class="pdf-viewer" data-pdf data-src="/portfolio/pages/nota/media/a3twosidedemo.pdf" data-layout="paged" data-pages="dual-cover" data-zoom="fit-page">
+        <div class="pdf-viewer__content"></div>
+        <div class="pdf-viewer__controls"></div>
+      </div>
+
+<h2>How it works</h2>
+<p>The package uses the <strong>Verovio</strong> library to render scores and automatically passes the appropriate options to embed them properly formatted in your LaTeX doc with auto generated LaTeX code.</p>
+<h3>All Technologies Used</h3>
+<h4>LaTeX [<a href="https://www.latex-project.org" class="text-link">website</a>] [<a href="https://github.com/latex3" class="text-link">github</a>]</h4>
+<p>LaTeX is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. LaTeX is the de facto standard for the communication and publication of scientific documents. LaTeX is available as free software.</p>
+<p>Required LaTeX Packages: <strong>graphicx</strong> [<a href="https://ctan.org/pkg/graphicx" class="text-link">ctan</a>], <strong>pdfpages</strong> [<a href="https://ctan.org/pkg/pdfpages" class="text-link">ctan</a>], <strong>kvoptions</strong> [<a href="https://ctan.org/pkg/kvoptions?lang=en" class="text-link">ctan</a>]</p>
+<h4>Verovio [<a href="https://www.verovio.org/index.xhtml" class="text-link">website</a>] [<a href="https://github.com/rism-digital/verovio" class="text-link">github</a>]</h4>
+<p>Verovio is a fast, portable and lightweight library for engraving Music Encoding Initiative (MEI) digital scores into SVG images. Verovio also contains on-the-fly converters to render Plaine &amp; Easie Code, Humdrum, Musedata, MusicXML, EsAC, and ABC digital scores.</p>
+<h4>The Music Encoding Initiative - MEI [<a href="https://music-encoding.org" class="text-link">website</a>] [<a href="https://github.com/music-encoding" class="text-link">github</a>]</h4>
+<p>The Music Encoding Initiative (MEI) is an open-source effort to define a system for encoding musical documents in a machine-readable structure. MEI brings together specialists from various music research communities, including technologists, librarians, historians, and theorists in a common effort to define best practices for representing a broad range of musical documents and structures. </p>
+<h4>SMuFL [<a href="https://www.smufl.org" class="text-link">website</a>] [<a href="https://github.com/smufl/smufl" class="text-link">github</a>]</h4>
+<p>SMuFL is a specification that provides a standard way of mapping the thousands of musical symbols required by conventional music notation into the Private Use Area in Unicode’s Basic Multilingual Plane for a single (format-independent) font.</p>
+<h4>MuseScore [<a href="https://musescore.org/en" class="text-link">website</a>] [<a href="https://github.com/musescore/MuseScore" class="text-link">github</a>]</h4>
+<p>MuseScore is an open source and free music notation software. Used through the mscore cli interface.</p>
+
+        </section>
+      </div>
+    </article>
+  </main>
+    <footer id="footer"></footer>
+  </div>
+
+  <!-- Engine -->
+  <script type="module" src="/portfolio/hydrate.js"></script>
+</body>
+
+</html>

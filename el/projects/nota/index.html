@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nota | Manolis Kyzalas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Import Map: Maps npm package names to CDN URLs for the browser -->
+  <script type="importmap">
+    {
+      "imports": {
+        "marked": "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js",
+        "js-yaml": "https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.mjs"
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/portfolio/styles/main.css">
+<meta property="og:title" content="Nota | Manolis Kyzalas">
+  <meta property="og:description" content="Μια επέκταση LaTeX για μουσική τυπογραφία και διάταξη">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://manoliskyzalas.com/el">
+  <meta property="og:image" content="https://manoliskyzalas.com/portfolio/pages/nota/media/a4articledemo_grid_resized_20.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nota | Manolis Kyzalas">
+  <meta name="twitter:description" content="Μια επέκταση LaTeX για μουσική τυπογραφία και διάταξη">
+  <meta name="twitter:image" content="https://manoliskyzalas.com/portfolio/pages/nota/media/a4articledemo_grid_resized_20.png">
+<meta name="base-path" content="/portfolio/">
+<link rel="icon" type="image/svg+xml" href="/portfolio/assets/favicon.svg">
+</head>
+
+<body class="hydrated page-nota">
+  <div id="app">
+    <header id="header"></header>
+    <main id="content">
+    <article class="project-detail fade-in">
+      <div class="project-hero" style="background-image: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,1) 100%), url('/portfolio/pages/nota/media/a4articledemo_grid_resized_20.png');"></div>
+      <div class="container-sm">
+        <header class="project-header">
+          <a href="/portfolio/el/" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Home
+          </a>
+          
+          <h1 class="text-gradient">Nota</h1>
+          <p class="description">Μια επέκταση LaTeX για μουσική τυπογραφία και διάταξη</p>
+          
+          <div class="meta">
+            <div class="tags"><span class="tag">έρευνα</span><span class="tag">τυπογραφία</span><span class="tag">κώδικας</span></div>
+            <div class="date">Αύγουστος 2025</div>
+          </div>
+        </header>
+
+        <section class="content">
+          <h1>Nota</h1>
+<p>To <strong>Nota</strong> είναι ένα open source πακέτο LaTeX για την ενσωμάτωση σωστά μορφοποιημένης μουσικής σημειογραφίας σε ένα έγγραφο. Λαμβάνει υπόψη τη διάταξη του εγγράφου και τα περιθώρια, ώστε να αποδίδει τη μουσική σημειογραφία με τρόπο που να ταιριάζει στο εκάστοτε layout· και, το πιο σημαντικό, μπορεί να αποδίδει τη μουσική <em>σύστημα προς σύστημα</em>, έτσι ώστε η παρτιτούρα να εμφανίζεται με «ενσωματωμένο» (inline) τρόπο και να τυλίγεται φυσικά, όπως ακριβώς αναμένεται από το κείμενο.</p>
+<p>Στόχος του είναι να προσφέρει ένα απλό interface και καλές προεπιλογές, ώστε να δίνει την αίσθηση ότι «απλώς δουλεύει».</p>
+<p>Ένας ακόμη στόχος του έργου είναι να παρέχει έναν εύκολο τρόπο επεξεργασίας παρτιτούρων στο λογισμικό της επιλογής σας, έτσι ώστε με ένα απλό <em>save</em> και <em>recompile</em> η ενημερωμένη παρτιτούρα να αποδίδεται ξανά σωστά στο έγγραφό σας, χωρίς να χρειάζεται χειροκίνητη εξαγωγή σε εικόνα ή PDF, επεξεργασία της εικόνας και επανεισαγωγή της στο έγγραφο LaTeX.</p>
+<p>Ο κώδικας μπορεί να βρεθεί στο παρακάτω GitHub Repository.</p>
+<div class="github-card" data-repo="manolisky/nota">Loading manolisky/nota...</div>
+
+<h2>Παραδείγματα</h2>
+<p>Παρακάτω παρουσιάζονται ορισμένα παραδείγματα demo εγγράφων που αναδεικνύουν τις μακροεντολές και τις δυνατότητες του πακέτου. Το πακέτο <code>blindtext</code> χρησιμοποιείται για τη συμπλήρωση του εγγράφου με κείμενο, για σκοπούς επίδειξης.</p>
+<h3>Demo άρθρου A4</h3>
+<p>Χαρτί A4, με όλα τα περιθώρια ρυθμισμένα στα 20mm, χρησιμοποιώντας την κλάση εγγράφου <code>article</code>.</p>
+<div class="pdf-viewer" data-pdf data-src="/portfolio/pages/nota/media/a4articledemo.pdf" data-layout="paged" data-pages="dual-cover" data-zoom="fit-page">
+        <div class="pdf-viewer__content"></div>
+        <div class="pdf-viewer__controls"></div>
+      </div>
+
+<h3>Demo A3 διπλής όψης</h3>
+<p>Βιβλίο A3 με την επιλογή <code>twoside</code>, με διαφορετικά εσωτερικά και εξωτερικά περιθώρια και μεγαλύτερη απόδοση της μουσικής σημειογραφίας.</p>
+<div class="pdf-viewer" data-pdf data-src="/portfolio/pages/nota/media/a3twosidedemo.pdf" data-layout="paged" data-pages="dual-cover" data-zoom="fit-page">
+        <div class="pdf-viewer__content"></div>
+        <div class="pdf-viewer__controls"></div>
+      </div>
+
+<h2>Πώς λειτουργεί</h2>
+<p>Το πακέτο χρησιμοποιεί τη βιβλιοθήκη <strong>Verovio</strong> για την απόδοση παρτιτούρων και περνά αυτόματα τις κατάλληλες επιλογές, ώστε να ενσωματώνονται σωστά στο έγγραφο LaTeX, με αυτόματα παραγόμενο κώδικα LaTeX.</p>
+<h3>Όλες οι τεχνολογίες που χρησιμοποιούνται</h3>
+<h4>LaTeX [<a href="https://www.latex-project.org" class="text-link">website</a>] [<a href="https://github.com/latex3" class="text-link">github</a>]</h4>
+<p>LaTeX είναι ένα σύστημα στοιχειοθεσίας υψηλής ποιότητας· περιλαμβάνει δυνατότητες σχεδιασμένες για την παραγωγή τεχνικών και επιστημονικών εγγράφων. Το LaTeX αποτελεί το de facto πρότυπο για την επικοινωνία και δημοσίευση επιστημονικών κειμένων και διατίθεται ως ελεύθερο λογισμικό.</p>
+<p>Απαιτούμενα πακέτα LaTeX: <strong>graphicx</strong>, <strong>pdfpages</strong>, <strong>kvoptions</strong></p>
+<h4>Verovio [<a href="https://www.verovio.org/index.xhtml" class="text-link">website</a>] [<a href="https://github.com/rism-digital/verovio" class="text-link">github</a>]</h4>
+<p>Το Verovio είναι μια γρήγορη, φορητή και ελαφριά βιβλιοθήκη για τη χάραξη (engraving) ψηφιακών παρτιτούρων MEI σε εικόνες SVG. Περιλαμβάνει επίσης μετατροπείς σε πραγματικό χρόνο για την απόδοση Plaine &amp; Easie Code, Humdrum, Musedata, MusicXML, EsAC και ABC.</p>
+<h4>Music Encoding Initiative – MEI [<a href="https://www.music-encoding.org" class="text-link">website</a>] [<a href="https://github.com/music-encoding/mei" class="text-link">github</a>]</h4>
+<p>Το Music Encoding Initiative (MEI) είναι μια πρωτοβουλία ανοιχτού κώδικα για τον ορισμό ενός συστήματος κωδικοποίησης μουσικών εγγράφων σε αναγνώσιμη από μηχανή μορφή. Το MEI φέρνει κοντά ειδικούς από διάφορες μουσικολογικές και τεχνολογικές κοινότητες — τεχνολόγους, βιβλιοθηκονόμους, ιστορικούς και θεωρητικούς — με στόχο τον καθορισμό βέλτιστων πρακτικών για την αναπαράσταση ενός ευρέος φάσματος μουσικών εγγράφων και δομών.</p>
+<h4>SMuFL [<a href="https://www.smufl.org" class="text-link">website</a>] [<a href="https://github.com/smufl/smufl" class="text-link">github</a>]</h4>
+<p>Το SMuFL είναι μια προδιαγραφή που παρέχει έναν τυποποιημένο τρόπο χαρτογράφησης των χιλιάδων μουσικών συμβόλων που απαιτούνται από τη συμβατική μουσική σημειογραφία, στην περιοχή Private Use Area του Unicode (Basic Multilingual Plane), για μία και μόνο γραμματοσειρά, ανεξάρτητα από το format.</p>
+<h4>MuseScore [<a href="https://musescore.com" class="text-link">website</a>] [<a href="https://github.com/musescore/MuseScore" class="text-link">github</a>]</h4>
+<p>Το MuseScore είναι ένα ανοιχτού κώδικα και δωρεάν λογισμικό μουσικής σημειογραφίας. Χρησιμοποιείται μέσω του περιβάλλοντος γραμμής εντολών <code>mscore</code> (CLI).</p>
+
+        </section>
+      </div>
+    </article>
+  </main>
+    <footer id="footer"></footer>
+  </div>
+
+  <!-- Engine -->
+  <script type="module" src="/portfolio/hydrate.js"></script>
+</body>
+
+</html>

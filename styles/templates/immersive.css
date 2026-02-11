@@ -1,0 +1,655 @@
+/**
+ * Immersive Template Styles
+ * Full-screen scroll-snapping sections with position presets
+ */
+
+/* ============================================
+   Container & Scroll Snapping
+   ============================================ */
+
+.immersive-container {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior: contain;
+    position: relative;
+}
+
+/* Immersive mode - remove content padding */
+body.immersive-mode #content {
+    padding-top: 0;
+}
+
+.immersive-slide {
+    height: 100dvh;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--bg-primary, #0a0a0a);
+}
+
+/* ============================================
+   Fade Mode - Fixed Background Layer
+   ============================================ */
+
+.immersive-backgrounds {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.immersive-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--bg-primary, #0a0a0a);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.immersive-bg.active {
+    opacity: 1;
+}
+
+/* Gradient overlay on background layer (crossfades with bg) */
+.immersive-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* Cover slide gradient */
+.immersive-bg-cover::after {
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.7) 100%);
+}
+
+/* Background layer gradients based on position */
+.immersive-bg.overlay-gradient.position-bottom::after {
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
+}
+
+.immersive-bg.overlay-gradient.position-center::after {
+    background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 80%);
+}
+
+.immersive-bg.overlay-gradient.position-left::after {
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
+}
+
+.immersive-bg.overlay-gradient.position-right::after {
+    background: linear-gradient(to left, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
+}
+
+/* Fade mode: slides have transparent background */
+[data-transition="fade"] .immersive-slide {
+    background-image: none !important;
+    background-color: transparent;
+    z-index: 1;
+}
+
+/* Fade mode: disable slide-level gradients (they're on background layer) */
+[data-transition="fade"] .overlay-gradient::before {
+    display: none;
+}
+
+/* ============================================
+   Cover Slide
+   ============================================ */
+
+.immersive-cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-xl, 3rem);
+}
+
+/* NOTE: Masked cover styles (.cover-masked, .text-cutout) are in immersive-masked.css */
+
+.immersive-cover .back-link {
+    position: absolute;
+    top: calc(var(--header-height) + var(--space-lg, 2rem));
+    /* left: var(--space-lg, 2rem); */
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs, 0.5rem);
+    color: var(--text-secondary, #a0a0a0);
+    text-decoration: none;
+    font-size: var(--text-sm, 0.875rem);
+    transition: color 0.2s ease;
+    z-index: 10;
+}
+
+.immersive-cover .back-link:hover {
+    color: var(--text-primary, #ffffff);
+}
+
+.cover-content {
+    max-width: 800px;
+    z-index: 5;
+}
+
+.cover-content h1 {
+    font-size: clamp(2rem, 4cqi, 5rem);
+    font-weight: 700;
+    margin-bottom: var(--space-md, 1.5rem);
+    line-height: 1.1;
+}
+
+.cover-content .description {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--text-secondary, #a0a0a0);
+    margin-bottom: var(--space-lg, 2rem);
+    line-height: 1.6;
+    padding: 1.5rem;
+}
+
+.cover-content .meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md, 1rem);
+}
+
+.cover-content .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs, 0.5rem);
+    justify-content: center;
+}
+
+.cover-content .date {
+    color: var(--text-muted, #666);
+    font-size: var(--text-sm, 0.875rem);
+    width: 100%;
+    text-align: center;
+}
+
+.scroll-indicator {
+    position: absolute;
+    top: calc(100% - var(--space-xl, 3rem) - 24px);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s ease-in-out infinite;
+    color: var(--text-muted, #666);
+    z-index: 5;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+/* ============================================
+   Common Slide Content Scrolling & Fade
+   ============================================ */
+
+.immersive-slide .slide-content {
+    --slide-padding-v: var(--space-xl, 4rem);
+    --slide-padding-h: var(--space-xl, 4rem);
+
+    padding: var(--slide-padding-v) var(--slide-padding-h);
+    max-height: 80%;
+    width: 100%;
+    overflow-y: auto;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    /* Fade mask synchronized with padding */
+    mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black var(--slide-padding-v),
+            black calc(100% - var(--slide-padding-v)),
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black var(--slide-padding-v),
+            black calc(100% - var(--slide-padding-v)),
+            transparent 100%);
+}
+
+.immersive-slide .slide-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* ============================================
+   Position Presets
+   ============================================ */
+
+/* Bottom (default) - text at bottom with gradient */
+.position-bottom {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.position-bottom .slide-content {
+    max-width: 800px;
+    text-align: center;
+    --slide-padding-v: var(--space-xl, 3rem);
+}
+
+/* Center - text centered with overlay */
+.position-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.position-center .slide-content {
+    /* max-width: 800px; */
+    max-width: 50rem;
+    text-align: center;
+    --slide-padding-v: var(--space-xl, 3rem);
+}
+
+/* Position side (left or right parent class) to avoid repetition*/
+.position-side {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.position-side .slide-content {
+    width: 70%;
+    min-width: 300px;
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    margin-top: auto;
+    --slide-padding-v: var(--space-xl, 4rem);
+    --slide-padding-h: var(--space-xl, 4rem);
+}
+
+/* Left - text on left side */
+/* Inherits from position-side, no extra styles needed for now */
+
+/* Right - text on right side */
+.position-right {
+    justify-content: flex-end;
+}
+
+/* Note: .slide-content styles are inherited from .position-side */
+
+/* ============================================
+   Overlay Presets (text background effects)
+   ============================================ */
+
+/* None (default) - no background behind text */
+.overlay-none .slide-content {
+    background: transparent;
+}
+
+/* Gradient - fade covering full viewport */
+.overlay-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.overlay-gradient.position-bottom::before {
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
+}
+
+.overlay-gradient.position-center::before {
+    background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 80%);
+}
+
+.overlay-gradient.position-left::before {
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
+}
+
+.overlay-gradient.position-right::before {
+    background: linear-gradient(to left, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
+}
+
+.overlay-gradient .slide-content {
+    z-index: 2;
+    position: relative;
+}
+
+/* Transparent - semi-transparent dark background */
+.overlay-transparent .slide-content {
+    background: rgba(10, 10, 10, 0.75);
+    border-radius: var(--radius-lg, 1rem);
+}
+
+/* Blur - frosted glass effect */
+.overlay-blur .slide-content {
+    background: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg, 1rem);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   Justify Presets (text alignment)
+   ============================================ */
+
+.justify-left .slide-content {
+    text-align: left;
+}
+
+.justify-center .slide-content {
+    text-align: center;
+}
+
+.justify-right .slide-content {
+    text-align: right;
+}
+
+/* Also adjust list alignment for left/right */
+.justify-left .slide-body ul,
+.justify-left .slide-body ol {
+    text-align: left;
+    padding-left: 1.5em;
+}
+
+.justify-right .slide-body ul,
+.justify-right .slide-body ol {
+    text-align: right;
+    padding-right: 1.5em;
+    list-style-position: inside;
+}
+
+/* ============================================
+   Slide Content Typography
+   ============================================ */
+
+.slide-title {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    font-weight: 600;
+    margin-bottom: var(--space-md, 1.5rem);
+    line-height: 1.2;
+}
+
+.slide-body {
+    font-size: var(--text-base, 1rem);
+    line-height: 1.8;
+    color: var(--text-base, #fcfcfc);
+}
+
+.slide-body h2,
+.slide-body h3 {
+    color: var(--text-primary, #ffffff);
+    margin-top: var(--space-lg, 2rem);
+    margin-bottom: var(--space-sm, 0.75rem);
+}
+
+.slide-body p {
+    margin-bottom: var(--space-md, 1rem);
+}
+
+.slide-body strong {
+    color: var(--text-primary, #ffffff);
+}
+
+/* ============================================
+   Navigation Dots
+   ============================================ */
+
+.immersive-nav {
+    position: fixed;
+    top: 50%;
+    right: var(--space-lg, 2rem);
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm, 0.75rem);
+    z-index: 100;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--text-muted, #666);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.nav-dot:hover {
+    border-color: var(--text-primary, #ffffff);
+    transform: scale(1.2);
+}
+
+.nav-dot.active {
+    background: var(--accent, #00d4ff);
+    border-color: var(--accent, #00d4ff);
+    transform: scale(1.1);
+}
+
+/* ============================================
+   Mobile Responsive (≤768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+    .immersive-cover {
+        padding: var(--space-lg, 2rem);
+    }
+
+    .immersive-cover .back-link {
+        top: calc(var(--header-height) + var(--space-md, 1rem));
+        /* left: var(--space-md, 1rem); */
+    }
+
+    /* On mobile, left/right collapse to bottom layout */
+    .position-left,
+    .position-right {
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .position-left .slide-content,
+    .position-right .slide-content {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Enforce text alignment based on position "weight" */
+    .position-left .slide-content {
+        text-align: left;
+    }
+
+    .position-right .slide-content {
+        text-align: right;
+    }
+
+    /* Ensure lists follow the text alignment */
+    .position-left .slide-body ul,
+    .position-left .slide-body ol {
+        text-align: left;
+    }
+
+    .position-right .slide-body ul,
+    .position-right .slide-body ol {
+        text-align: right;
+        list-style-position: inside;
+    }
+
+    /* Fix gradient direction for collapsed left/right on mobile (Scroll Mode) */
+    .overlay-gradient.position-left::before,
+    .overlay-gradient.position-right::before {
+        background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
+    }
+
+    /* Fix gradient direction for collapsed left/right on mobile (Fade Mode) */
+    .immersive-bg.overlay-gradient.position-left::after,
+    .immersive-bg.overlay-gradient.position-right::after {
+        background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.3) 50%, transparent 100%);
+    }
+
+    .immersive-nav {
+        right: var(--space-sm, 0.75rem);
+    }
+
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Reduce slide content padding - more specific selectors */
+    .position-center .slide-content,
+    .position-bottom .slide-content,
+    .position-side .slide-content {
+        --slide-padding-v: var(--space-md, 1rem);
+        --slide-padding-h: var(--space-lg, 2rem);
+        max-width: 100%;
+    }
+
+    .slide-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    /* Smaller text on mobile for readability */
+    .slide-body {
+        font-size: var(--text-sm, 0.875rem);
+    }
+
+    .slide-body li {
+        margin-bottom: var(--space-xs, 0.25rem);
+    }
+}
+
+/* ============================================
+   Fixes
+   ============================================ */
+
+/* Override default fade-in which uses transform (causing fixed position issues) */
+.immersive-container.fade-in {
+    animation-name: fadeInOpacity;
+    transform: none;
+}
+
+@keyframes fadeInOpacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   Print / PDF Styles
+   ============================================ */
+
+@media print {
+
+    /* 
+       Strict Pagination for Print
+       Force each slide to be exactly one page, no scrolling, no flow.
+    */
+    .immersive-container {
+        height: 100vh;
+        overflow: hidden;
+        /* No scroll snap needed for print, but we lock the height */
+    }
+
+    /* 
+       Ensure slides take up exactly one page
+    */
+    .immersive-slide {
+        height: 100vh;
+        max-height: 100vh;
+        page-break-after: always;
+        break-after: page;
+        overflow: hidden;
+
+        /* Ensure flex is enabled for alignment */
+        display: flex !important;
+        /* Ensure background images print */
+        background-size: cover !important;
+        background-position: center !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /*
+       Slide Content Constraint
+       Ensure content fits within the page or is hidden if too long (per user request).
+       We will likely need a text scaler for really long content later.
+    */
+    .slide-content {
+        max-height: 100vh;
+        overflow: hidden;
+        mask-image: none;
+        -webkit-mask-image: none;
+        padding: 4rem;
+        color: white;
+    }
+
+    /* Typography Overrides */
+    .slide-content h1,
+    .slide-content h2,
+    .slide-content h3,
+    .cover-content h1 {
+        /* text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); */
+        all: unset;
+    }
+
+    .slide-content p,
+    .slide-content li,
+    .cover-content p {
+        /* text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); */
+        all: unset;
+    }
+
+    /* 
+       Ensure Gradients Print
+       Browsers often hide backgrounds; force them.
+    */
+    .overlay-gradient {
+        all: unset;
+    }
+    .overlay-gradient::before {
+        /* -webkit-print-color-adjust: exact !important; */
+        /* print-color-adjust: exact !important; */
+        /* Ensure it sits below text */
+        /* z-index: 1; */
+    }
+
+    .immersive-cover {
+        /* Ensure cover takes full page */
+        min-height: 100vh;
+        break-after: page;
+    }
+
+    /* Hide interactive elements */
+    .scroll-indicator,
+    .back-link,
+    .immersive-nav {
+        display: none !important;
+    }
+}

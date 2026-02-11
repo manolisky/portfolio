@@ -1,0 +1,30 @@
+/* ========================================
+   Impromptu Page Styles
+   ======================================== */
+
+/* Import Archivo Variable Font (supporting width and weight) */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap');
+
+/* Apply to the masked title on the Impromptu page */
+.page-impromptu .immersive-slide.cover-masked .text-cutout {
+    font-family: 'Archivo', sans-serif;
+    
+    /* Variable Font Magic */
+    font-stretch: 62%; /* 62% is the narrowest (tallest looking) setting */
+    /* Alternatively: font-variation-settings: 'wdth' 62; */
+    
+    font-weight: 800; /* Extra bold */
+    text-transform: uppercase;
+    
+    /* Ensure letter spacing is tight for that "poster" look */
+    letter-spacing: -0.02em; 
+
+    font-size: 19cqi;
+}
+
+/* Optional: Tweaks for the content slides to match the vibe */
+.page-impromptu .slide-title {
+    font-family: 'Archivo', sans-serif;
+    font-stretch: 85%; /* Slightly wider for readability in headers */
+    font-weight: 600;
+}

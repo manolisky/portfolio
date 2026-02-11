@@ -1,0 +1,99 @@
+/* ========================================
+   Header Component
+   ======================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    backdrop-filter: blur(var(--translucent-material-blur));
+    background: var(--translucent-material-color);
+    border-bottom: var(--translucent-material-border);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.header-subtitle {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-left: 0.5rem;
+}
+
+.header-subtitle::before {
+    content: '•';
+    margin-right: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+.lang-switch {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.lang-switch:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+}
+
+/* ========================================
+   Header Responsive
+   ======================================== */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 0 1rem;
+    }
+
+    .header-title {
+        font-size: 1rem;
+    }
+
+    .header-subtitle {
+        display: none;
+    }
+
+    .nav-right {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.875rem;
+    }
+
+    .lang-switch {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+}
